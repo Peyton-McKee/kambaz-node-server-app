@@ -54,7 +54,7 @@ export default function CourseRoutes(app) {
     res.json(assignments);
   });
 
-  app.get("/api/courses/:courseId/people", (req, res) => {
+  app.get("/api/courses/:courseId/users", (req, res) => {
     const { courseId } = req.params;
     const people = usersDao.getPeopleForCourse(courseId);
     res.json(people);
