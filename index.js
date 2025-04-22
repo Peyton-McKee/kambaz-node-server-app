@@ -22,7 +22,10 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: process.env.NETLIFY_URL || "http://localhost:5173",
+    origin: (origin) => {
+      console.log(origin);
+      return origin === (process.env.NETLIFY_URL || "http://localhost:5173");
+    },
   })
 );
 const sessionOptions = {
